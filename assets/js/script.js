@@ -61,7 +61,7 @@ const generateTable = (users) => {
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    
                     <th scope="col">Name</th>
                     <th scope="col">Username</th>
                     <th scope="col">Email</th>
@@ -73,11 +73,11 @@ const generateTable = (users) => {
                 ${users.reduce((acc, user, index) =>{
                         acc += `
                             <tr>
-                                <th scope="row">${index+1}</th>
-                                <td>${user.name}</td>
+                                
+                                <td class='d-flex'><div  class='user-logo me-3'>${getInitials(user.name)}</div>${user.name}</td>
                                 <td>${user.username}</td>
                                 <td>${user.email}</td>
-                                <td>${user.phone}</td>
+                                <td><p class='phone-number'>${user.phone}</p></td>
                                 <td><a href='https://${user.website}' class='link-info'>${user.website}</a></td>
                             </tr>
                         `
@@ -88,7 +88,13 @@ const generateTable = (users) => {
         </table>
     `
 }
-
+const getInitials = (fullname) =>{
+    return fullname.split(' ').reduce((acc, char, index) => {
+        if(index<=1)
+            acc+= char[0]
+        return acc
+    }, '')
+}
 const clearTable = () =>{
     container.innerHTML = ''
 }
