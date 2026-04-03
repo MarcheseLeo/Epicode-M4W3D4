@@ -36,7 +36,7 @@ const renderUsers = async () => {
                 clearTable()
                 showAlert('warning','Nessun utente trovato')
             }else{
-                document.getElementById('table-container').innerHTML = generateTable(filter)
+                container.innerHTML = generateTable(filter)
             }
         }
     })
@@ -69,7 +69,7 @@ const generateTable = (users) => {
                 </tr>
             </thead>
             <tbody>
-                ${users.reduce((acc, user, index) =>{
+                ${users.reduce((acc, user) =>{
                         acc += `
                             <tr>
                                 <td class='d-flex'><div  class='user-logo me-3'>${getInitials(user.name)}</div>${user.name}</td>
