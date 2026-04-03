@@ -1,6 +1,7 @@
 const searchInput = document.getElementById('search')
 const dropdown = document.querySelector('.dropdown-menu')
 const dropdownToggle = document.querySelector('.dropdown-toggle')
+const container = document.getElementById('table-container')
 const getUsers = async () => {
     try {
         const response = await fetch('https://jsonplaceholder.typicode.com/users')
@@ -20,9 +21,10 @@ const renderUsers = async () => {
         searchInput.setAttribute('placeholder', e.target.textContent)
     })
 
-    searchInput.addEventListener('input', () => {
+    searchInput.addEventListener('input', (e) => {
+        e.preventDefault()
         if (dropdownToggle.textContent === 'Choose One')
-            showAlert('Devi scegliere un campo')
+            showAlert('danger','Devi scegliere un campo')
         else {
             const key = dropdownToggle.textContent.toLocaleLowerCase()
             const input = searchInput.value.toLocaleLowerCase()
@@ -31,14 +33,19 @@ const renderUsers = async () => {
                     return user
             })
 
-            document.getElementById('table-container').innerHTML = generateTable(filter)
+            if(filter.length===0){
+                clearTable()
+                showAlert('warning','Nessun utente trovato')
+            }else{
+                document.getElementById('table-container').innerHTML = generateTable(filter)
+            }
         }
     })
 }
 
-const showAlert = (message) => {
+const showAlert = (type, message) => {
     const alert = document.createElement('div')
-    alert.classList.add('alert', 'alert-danger')
+    alert.classList.add('alert', `alert-${type}`)
     alert.setAttribute('role', 'alert')
     alert.textContent = message
     document.body.appendChild(alert)
@@ -81,6 +88,10 @@ const generateTable = (users) => {
             </tbody>
         </table>
     `
+}
+
+const clearTable = () =>{
+    container.innerHTML = ''
 }
 renderUsers()
 
