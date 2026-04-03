@@ -72,7 +72,7 @@ const generateTable = (users) => {
                 ${users.reduce((acc, user) =>{
                         acc += `
                             <tr>
-                                <td class='d-flex'><div  class='user-logo me-3'>${getInitials(user.name)}</div>${user.name}</td>
+                                <td class='d-flex align-items-center'><div  class='user-logo me-3'>${getInitials(user.name)}</div>${user.name}</td>
                                 <td>${user.username}</td>
                                 <td>${user.email}</td>
                                 <td><p class='phone-number'>${user.phone}</p></td>

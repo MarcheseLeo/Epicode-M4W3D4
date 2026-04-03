@@ -1,3 +1,7 @@
+
+body{
+    background-color: #EEEEEE;
+}
 .alert {
     position: absolute;
     bottom: 5vh;
@@ -29,19 +33,29 @@
     }
 }
 
+  
 table {
-    border: 1px solid rgb(60, 63, 66);
+  border-collapse: separate !important;
+  border-spacing: 0 15px !important; /* 0 per lo spazio orizzontale, 15px per quello verticale (il tuo gap) */
+}
+
+/* Opzionale: Rimuove i bordi standard di Bootstrap per un look più pulito */
+table td, table th {
+  border-bottom: none; 
 }
 
 thead th {
     background-color: lightseagreen !important;
     color: white !important;
 }
-
+ tr {
+    border-radius: 20px !important;
+    overflow: hidden !important;
+}
 .phone-number, .link-info {
     text-align: center;
     width: fit-content !important;
-    margin: auto;
+    margin: auto 0;
     border-radius: 5px;
     padding: 3px;
     font-weight: 700;
@@ -59,7 +73,7 @@ thead th {
     background-color: #EEF9FD !important;
 }
 
-.user-logo{
+.user-logo {
     background-color: #CEDDF7 !important;
     color: #0D6EFD;
     border-radius: 50%;
@@ -68,4 +82,9 @@ thead th {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+td {
+    vertical-align: middle !important;
+    
 }
