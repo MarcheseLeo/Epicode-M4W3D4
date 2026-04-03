@@ -16,7 +16,6 @@ const renderUsers = async () => {
     console.log(users)
 
     dropdown.addEventListener('click', (e) => {
-        console.log(e.target.textContent)
         dropdownToggle.textContent = e.target.textContent
         searchInput.setAttribute('placeholder', e.target.textContent)
     })
@@ -79,7 +78,7 @@ const generateTable = (users) => {
                                 <td>${user.username}</td>
                                 <td>${user.email}</td>
                                 <td>${user.phone}</td>
-                                <td><a href='${user.website}'>${user.website}</a></td>
+                                <td><a href='https://${user.website}' class='link-info'>${user.website}</a></td>
                             </tr>
                         `
                         return acc

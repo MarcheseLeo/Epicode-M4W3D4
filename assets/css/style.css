@@ -25,3 +25,15 @@
     }
 }
 
+table{
+    border: 1px solid rgb(60, 63, 66);
+}
+
+thead th{
+    background-color: lightseagreen !important;
+    color: white !important;
+}
+
+
+
+
