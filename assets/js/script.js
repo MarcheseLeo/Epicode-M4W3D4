@@ -17,6 +17,7 @@ const renderUsers = async () => {
 
     dropdown.addEventListener('click', (e) => {
         dropdownToggle.textContent = e.target.textContent
+        dropdownToggle.classList.add('success')
         searchInput.setAttribute('placeholder', e.target.textContent)
     })
 
